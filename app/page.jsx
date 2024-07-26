@@ -57,23 +57,25 @@ export default function Home() {
             <p>Envoie une image à modifier</p>
           )}
         </div>
-        <button
-          className="btn"
-          disabled={!image}
-          onClick={async () => {
-            const { blob } = await renderPNG({
-              image,
-              settings,
-            });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = `${image.name}.png`;
-            a.click();
-          }}
-        >
-          Download
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            className="btn"
+            disabled={!image}
+            onClick={async () => {
+              const { blob } = await renderPNG({
+                image,
+                settings,
+              });
+              const url = URL.createObjectURL(blob);
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = `${image.name}.png`;
+              a.click();
+            }}
+          >
+            Download
+          </button>
+        </div>
       </div>
     </main>
   );
