@@ -54,7 +54,7 @@ export default function Home() {
           {image.src !== "" ? (
             <ImageDisplay settings={settings} image={image} />
           ) : (
-            <p>Pas d'image à modifier</p>
+            <p>Envoie une image à modifier</p>
           )}
         </div>
         <button
