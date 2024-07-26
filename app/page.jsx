@@ -49,12 +49,12 @@ export default function Home() {
           />
         </div>
       </div>
-      <div className="flex-1 flex items-center justify-center">
+      <div className="flex-1 w-full max-w-lg gap-4 m-auto flex-col flex items-center justify-center">
         <div className="w-full h-fit border rounded-md">
           {image.src !== "" ? (
             <ImageDisplay settings={settings} image={image} />
           ) : (
-            <p>Envoie une image à modifier</p>
+            <p className="text-center p-4">Envoie une image à modifier</p>
           )}
         </div>
         <div className="flex items-center gap-2">
