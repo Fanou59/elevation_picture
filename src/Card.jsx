@@ -1,4 +1,4 @@
-export const Card = ({ settings, setSetting }) => {
+export const Card = ({ settings, setSetting, setImage }) => {
   return (
     <div className="card-body">
       <h2 className="card-title">Settings</h2>
@@ -7,6 +7,7 @@ export const Card = ({ settings, setSetting }) => {
           <span className="label-text">File</span>
         </div>
         <input
+          onChange={setImage}
           type="file"
           className="file-input file-input-bordered file-input-sm file-input-primary w-full max-w-xs"
         />

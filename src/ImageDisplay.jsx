@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-export const ImageDisplay = ({ settings }) => {
+export const ImageDisplay = ({ settings, image }) => {
   return (
     <div style={{ display: "flex", padding: `${settings.padding}px` }}>
       <Image
-        src="/PORTRAITS V3.JPG"
+        src={image.src}
         alt="portrait"
         width={200}
         height={200}
