@@ -6,8 +6,8 @@ export const ImageDisplay = ({ settings, image }) => {
       <Image
         src={image.src}
         alt="portrait"
-        width={200}
-        height={200}
+        width={image.width}
+        height={image.height}
         style={{
           borderRadius: `${settings.radius}px`,
           boxShadow: `rgba(0, 0, 0, .${settings.shadow}) 0 0 ${settings.shadow}px`,

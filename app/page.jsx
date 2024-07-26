@@ -3,6 +3,7 @@
 import { Card } from "@/src/Card";
 import { ImageDisplay } from "@/src/ImageDisplay";
 import { useState } from "react";
+import { renderPNG } from "./render-png";
 
 export default function Home() {
   const [settings, setSettings] = useState({
@@ -14,7 +15,7 @@ export default function Home() {
     src: "",
   });
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     const fileName = file.name;
     const reader = new FileReader();
@@ -50,8 +51,29 @@ export default function Home() {
       </div>
       <div className="flex-1 flex items-center justify-center">
         <div className="w-full h-fit border rounded-md">
-          <ImageDisplay settings={settings} image={image} />
+          {image.src !== "" ? (
+            <ImageDisplay settings={settings} image={image} />
+          ) : (
+            <p>Pas d'image à modifier</p>
+          )}
         </div>
+        <button
+          className="btn"
+          disabled={!image}
+          onClick={async () => {
+            const { blob } = await renderPNG({
+              image,
+              settings,
+            });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = `${image.name}.png`;
+            a.click();
+          }}
+        >
+          Download
+        </button>
       </div>
     </main>
   );
