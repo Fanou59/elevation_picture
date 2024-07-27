@@ -48,7 +48,9 @@ export async function renderPNG({ image, settings }) {
   };
 
   const svg = await satori(
-    <ImageDisplay settings={newSettings} image={image} />,
+
+      <ImageDisplay settings={newSettings} image={image} />
+,
     {
       width: image.width,
     }

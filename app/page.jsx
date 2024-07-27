@@ -11,11 +11,7 @@ export default function Home() {
     shadow: 16,
     radius: 20,
   });
-  const [image, setImage] = useState({
-    src: "",
-    width: "",
-    height: "",
-  });
+  const [image, setImage] = useState();
 
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
@@ -59,13 +55,8 @@ export default function Home() {
         </div>
       </div>
       <div className="flex-1 w-full max-w-lg gap-4 m-auto flex-col flex items-center justify-center">
-        <div className="w-full h-fit border rounded-md">
-          {image.src !== "" ? (
-            <ImageDisplay settings={settings} image={image} />
-          ) : (
-            <p className="text-center p-4">Envoie une image à modifier</p>
-          )}
-        </div>
+        <ImageDisplay settings={settings} image={image} />
+
         <div className="flex items-center gap-2">
           <button
             className="btn"
