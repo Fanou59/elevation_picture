@@ -13,6 +13,8 @@ export default function Home() {
   });
   const [image, setImage] = useState({
     src: "",
+    width: "",
+    height: "",
   });
 
   const handleImageUpload = async (event) => {
