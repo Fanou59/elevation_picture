@@ -20,6 +20,13 @@ export default function Home() {
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     const fileName = file.name;
+
+    if (file.type !== "image/png") {
+      alert("Seul le format PNG est accepté");
+      event.target.value = "";
+      return;
+    }
+
     const reader = new FileReader();
 
     reader.onloadend = () => {
